@@ -1,0 +1,179 @@
+<main>
+	<section>
+		<sc-vehicle [vehicle]="activeBooking.vehicle"></sc-vehicle>
+	</section>
+	<section>
+		<main>
+			<ul>
+				<li>
+					<main>
+						<header>
+							<main>
+								<header>
+									Coverage
+								</header>
+								<footer>
+									Purchase coverage from us
+								</footer>
+							</main>
+							<aside>
+								<button mat-icon-button (click)="bookingStoreService.setCoverageByType('Rental')">
+									<mat-icon *ngIf="activeBooking?.coverage?.selectedType === 'Rental'">check_circle</mat-icon>
+									<mat-icon *ngIf="activeBooking?.coverage?.selectedType !== 'Rental'">radio_button_unchecked</mat-icon>
+								</button>
+							</aside>
+						</header>
+					</main>
+					<main *ngFor="let coverage of insuranceOptions$ | async">
+						<main *ngIf="activeBooking?.coverage?.selectedType === 'Rental'">
+							<main>
+								<header>
+									{{coverage?.name}}
+								</header>
+								<footer *ngIf="coverage?.total">
+									<span>{{ coverage?.total | currency:'USD':'symbol':'1.2-2'}}</span>/Day
+								</footer>
+							</main>
+							<aside>
+								<button mat-icon-button (click)="bookingStoreService.setRentalCoverage(coverage)">
+									<mat-icon *ngIf="!coverageSelected(coverage)">radio_button_unchecked</mat-icon>
+									<mat-icon *ngIf="coverageSelected(coverage)">check_circle</mat-icon>
+								</button>
+							</aside>
+						</main>
+						<footer *ngIf="activeBooking?.coverage?.selectedType === 'Rental'">
+							<ul>
+								<li *ngFor="let option of coverage.children">
+									<main>
+										<header>
+											<main>
+												<header>
+													{{option.name}}
+												</header>
+												<footer *ngIf="coverage?.total">
+													<span>{{ option?.total | currency:'USD':'symbol':'1.2-2'}}</span>/Day
+												</footer>
+											</main>
+											<aside>
+												<button mat-icon-button (click)="bookingStoreService.setRentalCoverage(option)">
+													<mat-icon *ngIf="!coverageSelected(option)">radio_button_unchecked</mat-icon>
+													<mat-icon *ngIf="coverageSelected(option)">check_circle</mat-icon>
+												</button>
+											</aside>
+										</header>
+									</main>
+								</li>
+							</ul>
+						</footer>
+					</main>
+				</li>
+				<li>
+					<main>
+						<header>
+							<main>
+								<header>
+									Personal Coverage
+								</header>
+								<footer>
+									Uses your own coverage.
+								</footer>
+							</main>
+							<aside>
+								<button mat-icon-button (click)="bookingStoreService.setCoverageByType('personal')">
+									<mat-icon *ngIf="activeBooking?.coverage?.selectedType === 'personal'">check_circle</mat-icon>
+									<mat-icon *ngIf="activeBooking?.coverage?.selectedType !== 'personal'">radio_button_unchecked</mat-icon>
+								</button>
+							</aside>
+						</header>
+						<main class="column" *ngIf="activeBooking?.coverage?.selectedType === 'personal'">
+							<mat-form-field>
+								<input
+									matInput
+									name="insurance_carrier"
+									type="text"
+									placeholder="Enter Insurance Carrier"
+									(keyup.escape)="clear($event)"
+									[matAutocomplete]="personal_insurance_carrier"
+									[formControl]="personal_control"
+									[(ngModel)]="personalCarrier"
+									(change)="submitPersonal()"
+									>
+								<mat-autocomplete #personal_insurance_carrier="matAutocomplete">
+									<mat-option *ngFor="let insurance of filtered_personal_insurance_carriers | async" [value]="insurance.name">
+										{{ insurance?.name }}
+									</mat-option>
+								</mat-autocomplete>
+							</mat-form-field>
+							<mat-form-field>
+								<input
+									matInput
+									name="insurance_policy_number"
+									type="text"
+									placeholder="Enter Policy Number (optional)"
+									(keyup.escape)="clear($event)"
+									[(ngModel)]="personalPolicyNumber"
+									(change)="submitPersonal()"
+									>
+							</mat-form-field>
+						</main>
+					</main>
+				</li>
+				<li>
+					<main>
+						<header>
+							<main>
+								<header>
+									Corporate Coverage
+								</header>
+								<footer>
+									Uses your company coverage.
+								</footer>
+							</main>
+							<aside>
+								<button mat-icon-button (click)="bookingStoreService.setCoverageByType('corporate')">
+									<mat-icon *ngIf="activeBooking?.coverage?.selectedType === 'corporate'">check_circle</mat-icon>
+									<mat-icon *ngIf="activeBooking?.coverage?.selectedType !== 'corporate'">radio_button_unchecked</mat-icon>
+								</button>
+							</aside>
+						</header>
+						<main class="column" *ngIf="activeBooking?.coverage?.selectedType === 'corporate'">
+							<mat-form-field>
+								<input
+									matInput
+									name="insurance_carrier"
+									type="text"
+									placeholder="Enter Insurance Carrier"
+									(keyup.escape)="clear($event)"
+									[matAutocomplete]="corporate_insurance_carrier"
+									[formControl]="corporate_control"
+									[(ngModel)]="corporateCarrier"
+									(change)="submitCorporate()"
+									>
+								<mat-autocomplete #corporate_insurance_carrier="matAutocomplete">
+									<mat-option *ngFor="let insurance of filtered_corporate_insurance_carriers | async" [value]="insurance.name">
+										{{ insurance?.name }}
+									</mat-option>
+								</mat-autocomplete>
+							</mat-form-field>
+							<mat-form-field>
+								<input
+									matInput
+									name="insurace_policy_number"
+									type="text"
+									placeholder="Enter Policy Number (optional)"
+									(keyup.escape)="clear($event)"
+									[(ngModel)]="corporatePolicyNumber"
+									(change)="submitCorporate()"
+									>
+							</mat-form-field>
+						</main>
+					</main>
+				</li>
+			</ul>
+		</main>
+		<footer>
+			<sc-coverage-info></sc-coverage-info>
+		</footer>
+	</section>
+
+</main>

@@ -1,0 +1,196 @@
+@font-face {
+	font-family: 'Rental';
+	src:url('/assets/fonts/sc-icons.eot?-jrzg57');
+	src:url('/assets/fonts/sc-icons.eot?#iefix-jrzg57') format('embedded-opentype'),
+		url('/assets/fonts/sc-icons.woff?-jrzg57') format('woff'),
+		url('/assets/fonts/sc-icons.ttf?-jrzg57') format('truetype'),
+		url('/assets/fonts/sc-icons.svg?-jrzg57#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted property of WebType LLC, The Font Bureau, and/or their suppliers. You may not
+attempt to copy, install, redistribute, convert, modify or reverse engineer this font software. Please contact WebType with any questions: http://www.webtype.com
+*/
+
+@font-face {
+  font-family: "BentonSansComp";
+  src:          url("/assets/fonts/BentonSansCompMedium.eot");
+  src:          url("/assets/fonts/BentonSansCompMedium.eot?") format("embedded-opentype"),
+                url("/assets/fonts/BentonSansCompMedium.woff") format("woff"),
+                url("/assets/fonts/BentonSansCompMedium.ttf") format("truetype"),
+                url("/assets/fonts/BentonSansCompMedium.svg#web") format("svg");
+  font-style:   normal;
+  font-weight:  normal;
+}
+
+@font-face {
+	font-family: "BentonSansReg";
+	src: url("/assets/fonts/BentonSansCompReg.otf");
+	font-style: normal;
+	font-weight: light;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  display: inline-block;
+
+  font: normal normal normal 14px/1 Rental;
+
+	font-family: 'Rental';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+  font-size: inherit;
+  text-rendering: auto;
+	text-transform: none;
+	line-height: 1;
+  vertical-align: middle;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-building:before {
+	content: "\e911";
+}
+.icon-airplane:before {
+	content: "\e600";
+}
+.icon-arrow:before {
+	content: "\e601";
+}
+.icon-calendar_:before {
+	content: "\e602";
+}
+.icon-calendar_reservation:before {
+	content: "\e603";
+}
+.icon-calendar_x:before {
+	content: "\e604";
+}
+.icon-calendar:before {
+	content: "\e605";
+}
+.icon-check_mark_in_circle:before {
+	content: "\e606";
+}
+.icon-clock:before {
+	content: "\e607";
+}
+.icon-facebook_f:before {
+	content: "\e608";
+}
+.icon-facebook:before {
+	content: "\e609";
+}
+.icon-google_g:before {
+	content: "\e60a";
+}
+.icon-instagram:before {
+	content: "\e60b";
+}
+.icon-marketing_site_arrows:before {
+	content: "\e60c";
+}
+.icon-marketing_site_bell:before {
+	content: "\e60d";
+}
+.icon-marketing_site_check-mark:before, .icon-check-mark:before {
+	content: "\e60e";
+}
+.icon-marketing_site_phone:before {
+	content: "\e60f";
+}
+.icon-marketing_site_wallet:before {
+	content: "\e610";
+}
+.icon-narrow_arrow:before {
+	content: "\e611";
+}
+.icon-navicon:before {
+	content: "\e612";
+}
+.icon-navigation_account:before {
+	content: "\e613";
+}
+.icon-navigation_contact_us:before {
+	content: "\e614";
+}
+.icon-navigation_home:before {
+	content: "\e615";
+}
+.icon-navigation_inbox:before {
+	content: "\e616";
+}
+.icon-navigation_locations:before {
+	content: "\e617";
+}
+.icon-navigation_refer_a_friend:before {
+	content: "\e618";
+}
+.icon-navigation_reservations:before {
+	content: "\e619";
+}
+.icon-navigation_reserve_a_car:before {
+	content: "\e61a";
+}
+.icon-twitter:before {
+	content: "\e61b";
+}
+.icon-arrow_left:before {
+  content: "\e900";
+}
+.icon-arrow_right:before {
+  content: "\e901";
+}
+.icon-arrow_up:before {
+  content: "\e902";
+}
+.icon-navigation_blog:before {
+  content: "\e903";
+}
+.icon-navigation_booked_third_party:before {
+  content: "\e904";
+}
+.icon-navigation_how_it_works:before {
+  content: "\e905";
+}
+.icon-navigation_log_in:before {
+  content: "\e906";
+}
+.icon-arrow-left:before, .icon-narrow_arrow_left:before {
+  content: "\e907";
+}
+.icon-arrow-right:before, .icon-narrow_arrow_right:before {
+  content: "\e908";
+}
+.icon-narrow_arrow-up:before {
+  content: "\e909";
+}
+.icon-narrow_arrow-down:before {
+  content: "\e912";
+}
+.icon-close:before, .icon-narrow_close:before {
+  content: "\e90a";
+}
+.icon-navigation_policies:before {
+  content: "\e90b";
+}
+.icon-navigation_sign_up:before {
+  content: "\e90c";
+}
+.icon-tips_and_tricks {
+  content: "\e90d";
+}
+.icon-EmergencyIcon:before {
+    content: "\e90e";
+}
+.icon-QuestionIcon:before {
+    content: "\e90f";
+}
+.icon-ReservationsIcon:before {
+    content: "\e910";
+}

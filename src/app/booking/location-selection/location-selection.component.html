@@ -1,0 +1,22 @@
+<main>
+	<header>
+		<mat-icon>search</mat-icon>
+		<input type="text"
+		placeholder="Search Locations"
+		(change)="bookingStoreService.dispatchLocationSearch($event.target.value)">
+	</header>
+	<main>
+		<ul>
+			<li *ngFor="let location of locations$ | async" (click)="bookingStoreService.setLocation(location)" [ngClass]="{'selected':location?.id === activeBooking?.location?.id}">
+				<main>
+					<header>
+						{{location?.name}}
+					</header>
+					<footer>
+						<mat-icon>flight</mat-icon><span>{{location?.description}}</span>
+					</footer>
+				</main>
+			</li>
+		</ul>
+	</main>
+</main>

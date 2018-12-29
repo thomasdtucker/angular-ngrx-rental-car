@@ -1,0 +1,217 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	& > main{
+		display:flex;
+		flex:1;
+		display:flex;
+		align-items: center;
+		justify-content: center;
+		& > section{
+			flex:0 0 25%;
+			.unavailable {
+				opacity: .35;
+			}
+
+			&:first-child{
+				padding:24px;
+				& > h2 {
+					font-family: BentonSansComp, sans-serif;
+					font-size: 32px;
+					font-weight: 500;
+					color: #49aaca;
+					margin-top:0;
+					text-transform: uppercase;
+				}
+
+				& > ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					& > li {
+						font-family: Roboto, sans-serif;
+						font-size: 14px;
+						font-weight: 300;
+						line-height: 1.57;
+						color: #454545;
+					}
+				}
+			}
+
+			& > section{
+				&.vehicle-details {
+					display:flex;
+					flex-flow:column;
+					align-items: center;
+					margin:0;
+
+					&.disabled {
+						opacity: 0.7;
+					}
+
+					& > header{
+						display:flex;
+						flex-flow: column;
+						align-items: center;
+
+					}
+					& > figure{
+						display:none;
+					}
+					& > main{
+						display:flex;
+						flex-flow:column;
+						align-items: center;
+						& > header{
+							& > h3,h4{
+								margin:0;
+								text-align: center;
+							}
+							& > h3{
+								padding:8px;
+								color:mat-color($mat-grey,700);
+								font-size:1.6em;
+								font-family:'BentonSansComp';
+								text-transform: uppercase;
+							}
+							& > h4{
+								color:mat-color($primary,500);
+								font-size:1.2em;
+							}
+						}
+						& > main{
+							display:flex;
+							flex-flow:column;
+							align-items: center;
+
+							& > figure{
+								flex:0 0 auto;
+								& > img{
+									width:100%
+								}
+							}
+
+							& > ul{
+								display: flex;
+								list-style: none;
+								margin:0;
+								padding:0;
+								& > li{
+									padding:15px;
+									& > img{
+										height:34px;
+										width:34px;
+									}
+								}
+							}
+						}
+					}
+					& > footer{
+						padding:15px;
+						& > button {
+							border-radius: 0 !important;
+							width: 192px;
+							color:mat-contrast($primary,500);
+							background:mat-color($primary,500);
+							box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+						}
+					}
+					& > aside{
+						padding:15px;
+						display:none;
+						& > a{
+							& > i{
+								&.circled {
+									height: 25px;
+									width: 25px;
+									border: 1px solid #979797;
+									border-radius: 50%;
+									line-height: 22px;
+									text-align: center;
+									&.icon-check-mark {
+										color: #45abc7;
+										border-color: #45abc7;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	:host() {
+		& > main{
+			display:flex;
+			flex-flow: column;
+			align-items: stretch;
+			& > section{
+				flex:0 0 auto;
+				&:first-child{
+					& > h2 {
+						font-size: 20px;
+						color: #454545;
+					}
+					& > ul {
+						& > li {
+						}
+					}
+				}
+
+				& > div{
+					&.vehicle-details {
+						flex-flow:row;
+						padding:15px 0;
+						border-top:1px solid #e1e1e1;
+
+						& > figure{
+							display:flex;
+							order:-1;
+							padding:15px;
+							& > img{
+								margin:0;
+							}
+						}
+						& > main{
+							flex:1;
+							align-items:flex-start;
+							& > header{
+								padding-bottom:8px;
+								& > h3{
+									padding:0 8px 0 0;
+								}
+							}
+							& > main{
+								& > figure{
+									display:none;
+								}
+								& > ul{
+									& > li{
+										padding:0 4px 0 0;
+										& > img{
+											height:24px;
+											width:24px;
+										}
+									}
+								}
+							}
+						}
+						& > footer{
+							display:none;
+							& > button {
+								box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+							}
+						}
+						& > aside{
+							display:flex;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+<main>
+	<header>
+		<h3>You have an upcoming trip to...</h3>
+		<h1>{{first_reservation?.pickup_location?.name}}</h1>
+	</header>
+	<main>
+		<section>
+			<mat-card>
+				<main>
+					<span>Enter Flight #</span><mat-icon>chevron_right</mat-icon>
+				</main>
+			</mat-card>
+		</section>
+
+		<section>
+			<mat-card class="noPadding">
+				<header>
+					<span>Reservations</span>
+					<aside>
+						<span><span>{{reservations.length}}</span> Upcoming Reservation</span><mat-icon>chevron_right</mat-icon>
+					</aside>
+				</header>
+				<section>
+					<span>Pick Up</span>
+					<span>{{first_reservation?.pickup | date:'fullDate'}} @ {{first_reservation?.pickup | date:'mediumTime'}}</span>
+				</section>
+				<section>
+					<span>Drop Off</span>
+					<span>{{first_reservation?.dropoff | date:'fullDate'}} @ {{first_reservation?.dropoff | date:'mediumTime'}}</span>
+				</section>
+				<section>
+					<section>
+						<span>Car Location</span>
+						<span>{{first_reservation?.pickup_location?.address?.line1}}</span>
+						<span *ngIf="first_reservation?.pickup_location?.address?.line2">{{first_reservation?.pickup_location?.address?.line2}}</span>
+						<span>{{first_reservation?.pickup_location?.address?.city}}, {{first_reservation?.pickup_location?.address?.state}}</span>
+					</section>
+					<aside>
+						<figure>
+							<img src="https://qa-static-assets.Rental.com/assets/location-assets/dal_location_tile_web.jpg" />
+						</figure>
+					</aside>
+				</section>
+			</mat-card>
+		</section>
+	</main>
+</main>

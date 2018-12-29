@@ -1,0 +1,38 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	& > main{
+		padding:24px;
+
+		& > section{
+			display:flex;
+			justify-content: center;
+
+			& > section{
+				padding:16px;
+				& > header{
+				}
+				& > main{
+					font-weight:200;
+					font-size:1.7em;
+					& > ul{
+						margin:0;
+						padding:0;
+						list-style: none;
+						overflow-y:scroll;
+
+						& > li{
+							padding:16px;
+							cursor:pointer;
+							&:hover,&.selected{
+								background:mat-color($sc-blue,500);
+								color:mat-contrast($sc-blue,500);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

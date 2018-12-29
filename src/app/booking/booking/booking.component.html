@@ -1,0 +1,65 @@
+<main>
+	<header>
+		<header *ngIf="error$ | async as error">
+			{{ error }}
+		</header>
+		<main>
+			<h3>{{title}}</h3>
+		</main>
+	</header>
+	<main>
+		<router-outlet>
+		</router-outlet>
+	</main>
+	<footer>
+		<header>
+			<nav mat-tab-nav-bar>
+				<a mat-tab-link
+					*ngFor="let nav of bookingNav"
+					[routerLink]="nav.path"
+					routerLinkActive
+					#rla="routerLinkActive"
+					[active]="rla.isActive">
+					<main>
+						<header>
+							{{nav.label}}
+						</header>
+						<footer>
+							<span *ngIf="nav.path === 'location'">{{activeBooking?.location.multi_car_display_name}}</span>
+							<span *ngIf="nav.path === 'pickup'">{{activeBooking?.pickupDate | date: 'mediumDate'}} <span *ngIf="activeBooking?.pickupTime">@ {{activeBooking?.pickupTime | date: 'shortTime'}}</span></span>
+							<span *ngIf="nav.path === 'dropoff'">{{activeBooking?.dropoffDate | date: 'mediumDate'}} <span *ngIf="activeBooking?.dropoffTime">@ {{activeBooking?.dropoffTime | date: 'shortTime'}}</span></span>
+							<span *ngIf="nav.path === 'vehicle'">{{activeBooking?.vehicle?.model}}</span>
+							<span *ngIf="nav.path === 'coverage'">{{activeBooking?.coverage?.selectedType}}</span>
+						</footer>
+					</main>
+				</a>
+			</nav>
+		</header>
+		<footer>
+			<main>
+				<ul>
+					<li>
+						<mat-form-field class="example-full-width">
+							<mat-icon matPrefix>add</mat-icon>
+							<input type="text" matInput placeholder="Add promo code">
+						</mat-form-field>
+					</li>
+					<li>
+						<label>Avg Daily Rate</label>
+						<span *ngIf="getAverageDayPrice()">{{getAverageDayPrice() | currency:'USD':'symbol':'1.2-2'}}</span>
+					</li>
+					<li>
+						<label>Estimated Total</label>
+						<span *ngIf="activeBooking?.receiptData?.total">{{activeBooking?.receiptData?.total | currency:'USD':'symbol':'1.2-2'}} </span>
+					</li>
+					<li>
+						<button mat-button>View Full Breakdown</button>
+					</li>
+				</ul>
+			</main>
+			<aside>
+				<button mat-button (click)="bookingStoreService.dispatchPostReservation()">book now</button>
+			</aside>
+		</footer>
+	</footer>
+</main>

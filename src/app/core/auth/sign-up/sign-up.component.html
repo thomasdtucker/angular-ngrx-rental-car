@@ -1,0 +1,43 @@
+<main>
+	<mat-card>
+		<header>
+			<header>
+				<button mat-icon-button routerLink="/">
+					<mat-icon aria-label="close">close</mat-icon>
+				</button>
+			</header>
+			<main>
+				<h1>signup</h1>
+			</main>
+		</header>
+		<main>
+			<header *ngIf="error$ | async as error">
+		    {{ error }}
+			</header>
+			<main>
+				<section>
+					<form class="example-form">
+						<mat-form-field>
+							<input
+								matInput
+								name="email"
+								type="email"
+								placeholder="Email"
+								required
+								[(ngModel)]="email"
+								(keyup.escape)="clear($event)"
+								autocomplete="off"
+								autofocus>
+						</mat-form-field>
+					</form>
+				</section>
+				<section>
+					<a routerLink="/auth/login"><button mat-button>Already have an account?</button></a>
+				</section>
+			</main>
+		</main>
+		<footer>
+			<button mat-button (click)="submitForm()">Signup</button>
+		</footer>
+	</mat-card>
+</main>

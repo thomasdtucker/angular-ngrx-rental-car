@@ -1,0 +1,46 @@
+@import 'vars';
+@include mat-core();
+@mixin matOverrides{
+  [mat-button], [mat-raised-button], [mat-icon-button], [mat-fab], [mat-mini-fab],
+  .mat-button,.mat-button-toggle,
+  .mat-card,
+  .mat-checkbox,
+  .mat-dialog, .mat-dialog-title, .mat-dialog-content, .mat-dialog-close, .mat-dialog-actions,
+  .mat-grid-list, .mat-grid-tile,
+  .mat-input, .mat-input-container, .mat-textarea,
+  .mat-list, .mat-list-item,
+  .mat-menu, button[mat-menu-item],
+  .mat-sidenav,
+  .mat-radio-button, .mat-radio-group,
+  .mat-select, button[mat-select],
+  .mat-slide-toggle,
+  .mat-slider,
+  .mat-tab, .mat-tab-group, mat-tab[label],.mat-tab-label,
+  .mat-toolbar,
+  [mat-tooltip],button[mat-tooltip]
+  {
+    font-family: $mat-font-family !important;
+  }
+}
+
+$app-primary: mat-palette($primary);
+$app-accent:  mat-palette($accent);
+
+// The warn palette is optional (defaults to red).
+$app-warn:    mat-palette($warn);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@include angular-material-theme($app-theme);
+@include matOverrides;
+
+// custom styles
+.mat-button,[mat-button]{
+	font-weight:normal;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+	background-color: white !important;
+	color:inherit;
+	box-shadow: inset 0 0 0px 9999px white;
+}

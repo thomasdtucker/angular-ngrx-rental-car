@@ -1,0 +1,13 @@
+<main>
+	<header>
+		<button mat-button (click)="toggleShowContent()" [ngClass]="{'selected':showContent}"><span *ngIf="showContent">less</span><span *ngIf="!showContent">more</span> <span>info</span></button>
+	</header>
+	<main *ngIf="showContent">
+		<section *ngFor="let coverage of insuranceOptions$ | async">
+			<div [innerHTML]="coverage.html"></div>
+			<ng-container *ngFor="let option of coverage.children">
+				<div [innerHTML]="option.html"></div>
+			</ng-container>
+		</section>
+	</main>
+</main>

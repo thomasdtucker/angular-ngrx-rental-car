@@ -1,0 +1,32 @@
+<main>
+	<header>
+		<aside>
+			<figure>
+				<img [src]="user?.photo_url" />
+			</figure>
+		</aside>
+		<main>
+			<header>
+				<label>{{user.first_name}} {{user.last_name}}</label>
+				<span>Member since {{ user?.created_at | date:'yyyy'}}</span>
+			</header>
+			<main>
+					<nav mat-tab-nav-bar>
+						<a mat-tab-link
+							*ngFor="let nav of accountNav"
+							[routerLink]="nav.path"
+							routerLinkActive
+							#rla="routerLinkActive"
+							[active]="rla.isActive">
+							<main>
+								{{nav.label}}
+							</main>
+						</a>
+					</nav>
+				</main>
+		</main>
+	</header>
+	<main>
+		<router-outlet></router-outlet>
+	</main>
+</main>

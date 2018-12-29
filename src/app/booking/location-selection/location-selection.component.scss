@@ -1,0 +1,87 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	& > main{
+
+		& > header{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+
+			font-size:2em;
+			padding:8px 24px;
+			background:mat-color($mat-grey,100);
+			border-top:1px solid mat-color($mat-grey,300);
+
+			& > mat-icon{
+				font-size:1em;
+				font-weight: bold;
+				color:mat-color($mat-grey,700);
+			}
+			& > input{
+				border:0;
+				font-size:.75em;
+				font-weight: normal;
+				background:none;
+				padding:16px;
+				outline:none;
+			}
+		}
+		& > main{
+			& > ul{
+				display:flex;
+				flex-flow:row wrap;
+				margin:0;
+				padding:0;
+				list-style: none;
+				& > li{
+					cursor:pointer;
+					flex:1 0 300px;
+					margin:24px 24px 0;
+					border-left:2px solid mat-color($sc-blue,500);
+
+					&:hover{
+						background:mat-color($sc-blue,500);
+						color:mat-contrast($sc-blue,500);
+						& > main{
+							& > footer{
+								color:mat-contrast($sc-blue,500);
+							}
+						}
+					}
+
+					&.selected{
+						background:mat-color($sc-blue,500);
+						color:mat-contrast($sc-blue,500);
+						& > main{
+							& > footer{
+								color:mat-contrast($sc-blue,500);
+							}
+						}
+					}
+
+					& > main{
+						padding:16px;
+						& > header{
+							padding:4px;
+							font-size:1.5em;
+							font-family: 'BentonSansComp';
+						}
+						& > footer{
+							display:flex;
+							align-items: center;
+							color:mat-color($mat-grey,500);
+							& > mat-icon{
+								font-size:1.5em;
+							}
+							& > span{
+								font-size:.8em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

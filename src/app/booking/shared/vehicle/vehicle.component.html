@@ -1,0 +1,29 @@
+<main>
+	<figure>
+		<img class="vehicle-image" [src]="vehicle.main_image"/>
+	</figure>
+	<main>
+		<header>
+			<h3>{{ vehicle?.model }}</h3>
+			<h4><span>${{ getAverageDayPrice() | number:'1.0-2'}}/day</span>&nbsp;</h4>
+		</header>
+		<main>
+			<figure>
+				<img class="vehicle-image" [src]="vehicle.main_image"/>
+			</figure>
+			<ul>
+				<li *ngFor="let feature of vehicle.features">
+					<img [src]="feature.icon_image"/>
+				</li>
+			</ul>
+		</main>
+	</main>
+	<footer *ngIf="showButton">
+		<button mat-button (click)="bookingStoreService.setVehicle(vehicle)">Select Vehicle</button>
+	</footer>
+	<aside>
+		<a href="">
+			<mat-icon>circle</mat-icon>
+		</a>
+	</aside>
+</main>

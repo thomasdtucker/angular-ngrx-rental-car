@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+@import 'palette';
+@import 'fonts';
+
+$primary: $sc-blue;
+$accent: $mat-green;
+$warn: $sc-red;
+
+
+$sc-breakpoints: (
+  0: '960px',
+	1: '840px',
+	2: '600px',
+	3: '480px'
+);

@@ -1,0 +1,60 @@
+<main>
+	<mat-card>
+		<header>
+			<header>
+				<button mat-icon-button routerLink="/">
+					<mat-icon aria-label="close">close</mat-icon>
+				</button>
+			</header>
+			<main>
+				<h1>Login</h1>
+			</main>
+		</header>
+		<main>
+			<header *ngIf="error$ | async as error">
+		    {{ error }}
+			</header>
+			<main>
+				<section>
+					<form class="example-form">
+						<mat-form-field>
+							<input
+								matInput
+								name="email"
+								type="email"
+								placeholder="Email"
+								required
+								[(ngModel)]="email"
+								(keyup.escape)="clear($event)"
+								autocomplete="off"
+								autofocus>
+						</mat-form-field>
+						<mat-form-field>
+							<input
+								matInput
+								name="password"
+								type="password"
+								placeholder="Password"
+								required
+								[(ngModel)]="password"
+								(keyup.escape)="clear($event)"
+								autocomplete="off">
+					</mat-form-field>
+					</form>
+				</section>
+				<section>
+					<a routerLink="/auth/forgot_password"><button mat-button>Forgot Your Password?</button></a>
+				</section>
+				<section>
+					<a routerLink="/auth/confirmation"><button mat-button>Resend Confirmation Instructions?</button></a>
+				</section>
+				<section>
+					<a routerLink="/auth/signup"><button mat-button>Sign Up</button></a>
+				</section>
+			</main>
+		</main>
+		<footer>
+			<button mat-button (click)="submitLogin()">Login</button>
+		</footer>
+	</mat-card>
+</main>

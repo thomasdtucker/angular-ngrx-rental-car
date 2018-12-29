@@ -1,0 +1,48 @@
+<main>
+
+	<section>
+		<section>
+			<mat-form-field>
+				<input opened matInput [matDatepicker]="pickupDate" placeholder="Choose a pickup date" (dateChange)="bookingStoreService.setPickupDate($event.target.value)" [value]="activeBooking?.pickupDate">
+				<mat-datepicker-toggle matSuffix [for]="pickupDate"></mat-datepicker-toggle>
+				<mat-datepicker opened touchUi="true" #pickupDate></mat-datepicker>
+			</mat-form-field>
+		</section>
+		<section>
+			<mat-form-field>
+				<input matInput [matDatepicker]="dropoffDate" placeholder="Choose a dropoff date" (dateChange)="bookingStoreService.setDropoffDate($event.target.value)" [value]="activeBooking?.dropoffDate">
+				<mat-datepicker-toggle matSuffix [for]="dropoffDate"></mat-datepicker-toggle>
+				<mat-datepicker touchUi="true" #dropoffDate></mat-datepicker>
+			</mat-form-field>
+		</section>
+	</section>
+
+	<section class="times">
+		<section>
+			<header>
+				Pickup Times
+			</header>
+			<main>
+				<ul>
+					<li *ngFor="let time of (times$ | async)?.pickups" (click)="bookingStoreService.setPickupTime(time)" [ngClass]="{'selected':time?.start_at === activeBooking?.pickupTime}">
+						{{time?.start_at | simpleTime}}
+					</li>
+				</ul>
+			</main>
+		</section>
+		<section>
+			<header>
+				Dropoff Times
+			</header>
+			<main>
+				<ul>
+					<li *ngFor="let time of (times$ | async)?.dropoffs" (click)="bookingStoreService.setDropoffTime(time)" [ngClass]="{'selected':time?.start_at === activeBooking?.dropoffTime}">
+						{{time?.start_at | simpleTime}}
+					</li>
+				</ul>
+			</main>
+		</section>
+
+	</section>
+
+</main>

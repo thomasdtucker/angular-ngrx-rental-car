@@ -1,0 +1,96 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	position:fixed;
+	top:0;
+	left:0;
+	width:100vw;
+	height:100vh;
+	z-index:1;
+	flex:1;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	background:rgba(0,0,0,0.5);
+	& > main{
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		flex:0 1 600px;
+		& > mat-card{
+			flex:1;
+			padding:0;
+			margin:0;
+			& > header{
+				display:flex;
+				flex-flow: column;
+				align-items: center;
+				color:white;
+				text-transform: uppercase;
+				font-family: 'BentonSansComp';
+				background-size:cover;
+				background-image: url(https://www.rac-tst.com/images/components/authentication/login-modal-header-background.png);
+				& > header{
+					align-self: flex-end;
+				}
+				& > main{
+					padding:16px;
+					& > h1{
+						font-size:3.5em;
+						margin:0;
+						padding:0;
+					}
+				}
+			}
+			& > main{
+				display:flex;
+				flex-flow:column;
+				& > header{
+					display:flex;
+					justify-content: center;
+					padding:24px;
+					color:mat-contrast($warn,500);
+					background:mat-color($warn,500);
+				}
+				& > main{
+					padding:24px;
+					display:flex;
+					flex-flow: column;
+					& > section{
+						display:flex;
+						justify-content: center;
+
+						& > form{
+							flex:0 0 75%;
+							display:flex;
+							flex-flow: column;
+							& > mat-form-field{
+								width:100%;
+							}
+						}
+						& > a{
+							flex:0 0 75%;
+							margin:8px;
+							& > button{
+								width:100%;
+								color:mat-contrast($mat-grey,200);
+							}
+						}
+					}
+				}
+			}
+			& > footer{
+				display: flex;
+				border-top:1px solid mat-color($mat-grey,200);
+				& > button{
+					flex:1;
+					padding:16px;
+					padding-bottom:32px;
+					font-size:1.5em;
+				}
+
+			}
+		}
+	}
+}

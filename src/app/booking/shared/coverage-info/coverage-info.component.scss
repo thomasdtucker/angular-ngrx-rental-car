@@ -1,0 +1,29 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	& > main{
+		& > header{
+			& > button{
+				width:100%;
+				color:mat-contrast($mat-grey,200);
+				background:mat-color($mat-grey,200);
+				&.selected{
+					color:mat-contrast($primary,500);
+					background:mat-color($primary,500);
+				}
+			}
+		}
+		& > main{
+			color:mat-color($mat-grey,500);
+			/deep/ p, /deep/ li{
+				font-size:.8em;
+			}
+			/deep/ h4{
+				font-size:1.2em;
+				margin:10px 0;
+				font-weight:500;
+			}
+		}
+	}
+}

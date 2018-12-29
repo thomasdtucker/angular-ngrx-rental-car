@@ -1,0 +1,125 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	display:flex;
+	flex:1;
+	background:white;
+
+	& > main{
+		display:flex;
+		flex:1;
+		flex-flow: column;
+
+		& > header{
+			flex:0;
+			& > header{
+				display:flex;
+				justify-content: center;
+				padding:24px;
+				color:mat-contrast($warn,500);
+				background:mat-color($warn,500);
+			}
+			& > main{
+				padding:16px 24px;
+				& > h3{
+					margin:0;
+					padding:0;
+				}
+			}
+		}
+		& > main{
+			flex:1;
+			padding:0;
+			overflow-y:scroll;
+		}
+		& > footer{
+			flex:0;
+			& > header{
+				padding:16px 24px;
+				& > nav{
+					/deep/ .mat-tab-links{
+						display:flex;
+						& > a{
+							flex:1;
+
+							&.mat-tab-link{
+								opacity:1;
+								background:transparent;
+							}
+
+							& > main{
+								flex:1;
+								display:flex;
+								flex-flow: column;
+
+								& > *{
+									text-align: left;
+								}
+
+								& > header{
+									font-size: 1.1em;
+									text-transform: uppercase;
+									font-family: 'BentonSansComp';
+								}
+
+								& > footer{
+									color:mat-color($primary,500);
+								}
+							}
+						}
+					}
+				}
+			}
+			& > footer{
+				display:flex;
+				align-items: center;
+				color:mat-color($mat-grey,500);
+				background:mat-color($mat-grey,200);
+				border-top:1px solid mat-color($mat-grey,300);
+				& > aside{
+					flex: 0 0 auto;
+					padding:16px 24px;
+					& > button{
+						overflow:hidden;
+						border-radius:3em;
+						text-transform: capitalize;
+						color:mat-contrast($primary,500);
+						background:mat-color($primary,500);
+					}
+				}
+				& > main{
+					flex:1;
+					& > ul{
+						padding:0;
+						margin:0;
+						list-style: none;
+						display:flex;
+						align-items: center;
+						& > li{
+							flex:1;
+							padding:0 24px;
+
+							& > button{
+								overflow:hidden;
+								border-radius:3em;
+								text-transform: capitalize;
+								color:mat-contrast($mat-grey,900);
+								background:mat-color($mat-grey,300);
+							}
+
+							& > span{
+								padding:0 8px;
+								font-weight:500;
+								color:mat-color($primary,500);
+							}
+							mat-icon{
+								font-size:1em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

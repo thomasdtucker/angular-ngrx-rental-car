@@ -1,0 +1,49 @@
+<main>
+  <header>
+		<sc-promo></sc-promo>
+		<main [ngClass]="{'loggedIn':user?.id}">
+			<figure>
+
+			</figure>
+			<aside *ngIf="user?.id">
+				<main>
+					Welcome Back, {{user?.first_name}} {{user?.last_name}}
+				</main>
+				<figure>
+					<img [src]="user?.photo_url" />
+				</figure>
+				<nav>
+					<button mat-icon-button [matMenuTriggerFor]="menu">
+					  <mat-icon>keyboard_arrow_down</mat-icon>
+					</button>
+					<mat-menu #menu="matMenu">
+					  <button mat-menu-item routerLink="/account/dashboard">
+					    <span>Dashboard</span>
+					  </button>
+						<button mat-menu-item routerLink="/account/account">
+					    <span>My Account</span>
+					  </button>
+					  <button mat-menu-item (click)="this.authStoreService.dispatchLogoutAction()">
+					    <span>Sign Out</span>
+					  </button>
+					</mat-menu>
+				</nav>
+			</aside>
+			<aside *ngIf="!user?.id">
+				<button mat-button routerLink="/auth/login">log in</button>
+				<button mat-button routerLink="/auth/signup">sign up</button>
+			</aside>
+		</main>
+  </header>
+  <main>
+		<main>
+			<router-outlet></router-outlet>
+		</main>
+		<footer *ngIf="!isBooking">
+			<button mat-button routerLink="/booking">
+				<span>Reserve your Car</span>
+				<mat-icon aria-label="continue">chevron_right</mat-icon>
+			</button>
+		</footer>
+  </main>
+</main>

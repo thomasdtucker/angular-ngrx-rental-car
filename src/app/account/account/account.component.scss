@@ -1,0 +1,60 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	display:flex;
+	flex:1;
+	background:mat-color($mat-grey,200);
+
+	& > main{
+		flex:1;
+		& > header{
+			display:flex;
+			align-items: flex-start;
+			background:white;
+			padding:24px 24px 0;
+			@include mat-elevation(1);
+			& > aside{
+				flex:0 0 auto;
+				padding-right:24px;
+				& > figure{
+					margin:0;
+					padding:0;
+					width:75px;
+					height:75px;
+
+					border-radius: 50%;
+					overflow:hidden;
+					& > img{
+						width:100%;
+					}
+				}
+			}
+			& > main{
+				flex:1;
+				& > header{
+					diplay:flex;
+					flex-flow:column;
+					& > label{
+						font-size:2em;
+					}
+					& > span{
+						display:block;
+						padding:4px 0;
+						font-size: 1.2em;
+						color:mat-color($mat-grey,400);
+					}
+				}
+				& > main{
+					& > nav{
+						/deep/ .mat-tab-links{
+							& > .mat-tab-link{
+								text-transform: capitalize;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

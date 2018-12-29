@@ -1,0 +1,102 @@
+@import "vars";
+@import '~@angular/material/theming';
+
+:host(){
+	display:flex;
+	flex:1;
+	background:mat-color($mat-grey,200);
+
+	& > main{
+		position:relative;
+		flex:1;
+		&:before{
+			position:absolute;
+			display:block;
+			content:'';
+			height:300px;
+			width:100%;
+			z-index:0;
+			background-size:cover;
+			background-image:url('/assets/images/3c392c41.default_landing.png');
+		}
+		& > * {
+			padding:24px;
+			position: relative;
+			z-index:1;
+		}
+		& > header{
+			padding:124px 24px 0 24px;
+			& > h3,h1{
+				padding:0;
+				margin:0;
+				color:white;
+				font-weight:400;
+				font-family: 'BentonSansComp';
+			}
+			& > h3{
+				font-size:1.7em;
+			}
+			& > h1{
+				font-size:2.5em;
+			}
+		}
+		& > main{
+			padding-top:0;
+			& > section{
+				margin-bottom:24px;
+				& > mat-card{
+					&.noPadding{
+						padding:0;
+					}
+					& > main{
+						display:flex;
+						align-items: center;
+						justify-content: space-between;
+					}
+					& > header{
+						display:flex;
+						align-items: center;
+						justify-content: space-between;
+						padding:24px;
+						background:mat-color($mat-grey,200);
+						& > aside{
+							flex:0 0 auto;
+							display:flex;
+							align-items: center;
+							justify-content: space-between;
+						}
+					}
+					& > section{
+						display:flex;
+						align-items: center;
+						justify-content: space-between;
+						padding:24px;
+						border-top:1px solid mat-color($mat-grey,300);
+						& > aside{
+							flex:0 0 auto;
+							& > figure{
+								padding:0;
+								margin:0;
+								width:200px;
+								& > img{
+									width:100%;
+								}
+							}
+						}
+						& > section{
+							display:flex;
+							flex-flow:column;
+
+							& > span{
+								padding-bottom:4px;
+								&:first-child{
+									font-weight:bold;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
